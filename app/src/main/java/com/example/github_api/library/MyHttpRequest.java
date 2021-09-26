@@ -13,8 +13,11 @@ public class MyHttpRequest {
     private static final String root_url = "https://api.github.com/";
 
     @NotNull
-    public static MyResponse search_repo(String repo) throws IOException {
-        URL url = new URL(root_url + "search/repositories?q=" + repo);
+    public static MyResponse search_repo(String repo, int count) throws IOException {
+        if(count < 1 || count > 100){
+            count = 30;
+        }
+        URL url = new URL(root_url + "search/repositories?q=" + repo.replace(" ", "%20") + "&per_page=" + count);
         Log.d("URL", url.toString());
 
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();

@@ -1,15 +1,15 @@
 package com.example.github_api.library;
 
-public class Item {
+public class MyItem {
     private String name;
     private String ownerIconUrl;
     private String language;
-    private long stargazersCount;
-    private long watchersCount;
-    private long forksCount;
-    private long openIssuesCount;
+    private Long stargazersCount;
+    private Long watchersCount;
+    private Long forksCount;
+    private Long openIssuesCount;
 
-    public Item(String name, String ownerIconUrl, String language, long stargazersCount, long watchersCount, long forksCount, long openIssuesCount) {
+    public MyItem(String name, String ownerIconUrl, String language, Long stargazersCount, Long watchersCount, Long forksCount, Long openIssuesCount) {
         this.name = name;
         this.ownerIconUrl = ownerIconUrl;
         this.language = language;
@@ -31,19 +31,19 @@ public class Item {
         return language;
     }
 
-    public long getStargazersCount() {
+    public Long getStargazersCount() {
         return stargazersCount;
     }
 
-    public long getWatchersCount() {
+    public Long getWatchersCount() {
         return watchersCount;
     }
 
-    public long getForksCount() {
+    public Long getForksCount() {
         return forksCount;
     }
 
-    public long getOpenIssuesCount() {
+    public Long getOpenIssuesCount() {
         return openIssuesCount;
     }
 }
