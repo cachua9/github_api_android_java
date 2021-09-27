@@ -21,11 +21,12 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        setTitle("Detail");
+
         imageView = (ImageView) findViewById(R.id.imageView);
         nameView = (TextView) findViewById(R.id.nameView);
         languageView = (TextView) findViewById(R.id.languageView);
         infoView = (TextView) findViewById(R.id.infoView);
-
 
         MyItem item = getIntent().getParcelableExtra("item");
         if(item != null){
