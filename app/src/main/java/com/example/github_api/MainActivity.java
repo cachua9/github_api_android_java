@@ -1,11 +1,14 @@
 package com.example.github_api;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +24,7 @@ import com.example.github_api.library.MyResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,6 +69,19 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                open_detail(items.get(position));
+            }
+        });
+    }
+
+    private void open_detail(MyItem item){
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("item", (Parcelable) item);
+        startActivity(intent);
     }
 
     private class AsyncCaller extends AsyncTask<Void, Void, Void>
